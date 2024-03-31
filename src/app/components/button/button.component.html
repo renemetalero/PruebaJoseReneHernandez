@@ -1,0 +1,6 @@
+<button [type]="type"
+  [disabled]="this.disabled"
+  [ngStyle]="{backgroundColor: this.color, color: 'rgb(0, 0, 0)', borderRadius: this.rounded ? '4px' : '0px'}"
+>
+  <ng-content></ng-content>
+</button>

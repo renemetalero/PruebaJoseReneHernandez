@@ -1,0 +1,17 @@
+<app-alert [type]="this.type" [message]="this.alertText"></app-alert>
+
+<div class="container">
+  <div>
+    <div class="table-controls">
+      <app-filter-field (search)="onSearch($event)"></app-filter-field>
+      <app-button (click)="redirectForm()" color="rgb(240, 181, 17, 0.8)" [rounded]="true">
+        Agregar
+      </app-button>
+    </div>
+    <app-custom-table (edit)="this.onEdit($event)" (delete)="this.onDelete($event)" [data]="this.products | filter: this.searchValue" [columns]="columnsTable"></app-custom-table>
+  </div>
+</div>
+
+<app-modal #modal (cancel)="this.onCancel()" [show]="this.showDialog" (confirm)="this.onConfirm()"  >
+  <p style="margin-bottom: 5rem;">Estas seguro de eliminar el producto "{{this.productSelected ? this.productSelected.name : ''}}"</p>
+</app-modal>

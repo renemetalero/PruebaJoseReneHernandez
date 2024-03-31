@@ -1,0 +1,15 @@
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+dialog::backdrop {
+  background-color: rgba(0,0,0,0.6);
+}
+
+dialog{
+  border: none;
+  border-radius: 8px;
+  padding: 2rem;
+}

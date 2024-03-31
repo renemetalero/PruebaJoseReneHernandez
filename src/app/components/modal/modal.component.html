@@ -1,0 +1,8 @@
+
+<dialog #dialog>
+  <ng-content></ng-content>
+  <div class="modal-buttons">
+    <app-button  (click)="this.onCancel()" color="rgb(238,234,249)">Cancelar</app-button>
+    <app-button  (click)="this.onConfirm()" [rounded]="true">Continuar</app-button>
+  </div>
+</dialog>

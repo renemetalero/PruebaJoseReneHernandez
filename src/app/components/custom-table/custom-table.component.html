@@ -1,0 +1,36 @@
+<div class="table-container">
+  <table>
+     <thead>
+        <th *ngFor="let col of columns">
+          {{col.label}}
+        </th>
+        <th></th>
+     </thead>
+     <tbody>
+        <tr *ngFor="let item of data">
+          <td *ngFor="let col of columns">
+            <ng-container  *ngIf="col.html; else textContent">
+               <div [innerHTML]="col.html(item)"></div>
+            </ng-container>
+             <ng-template #textContent>
+                {{item[col.name]}}
+             </ng-template>
+          </td>
+          <td style="width:50px;">
+            <app-dropdown>
+              <a (click)="onEdit(item)">Editar</a>
+              <a (click)="onDelete(item)">Eliminar</a>
+            </app-dropdown>
+          </td>
+        </tr>
+     </tbody>
+  </table>
+  <div class="table-footer">
+    <span>{{data.length}} resultados</span>
+    <select>
+      <option value="5">5</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+    </select>
+  </div>
+</div>

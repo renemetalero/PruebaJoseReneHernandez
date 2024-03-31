@@ -1,0 +1,11 @@
+button {
+  border: none;
+  padding: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.3;
+  cursor: unset;
+}

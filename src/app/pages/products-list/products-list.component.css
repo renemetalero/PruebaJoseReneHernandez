@@ -1,0 +1,13 @@
+:host {
+  width: 100%;
+}
+
+.container {
+  margin-bottom: 5rem;
+}
+
+.table-controls {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,22 @@
+.container {
+  background: var(--primary-color);
+  min-height: 100vh;
+}
+
+
+.content {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+@media(min-width: 768px) {
+  .content {
+    margin-top: 8rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}

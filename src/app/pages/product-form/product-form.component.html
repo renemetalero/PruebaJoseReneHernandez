@@ -1,0 +1,46 @@
+
+<app-alert [type]="this.type" [message]="this.alertText"></app-alert>
+
+<div class="form-container">
+  <form [formGroup]="form" (ngSubmit)="sendData()">
+    <h2 class="text-center">Formulario de Registro</h2>
+
+    <div class="line"></div>
+
+    <div class="grid">
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input id="id" [readonly]="this.selectedProduct" type="text" [errorMessages]="this.errorMessages.id" appDebounce appFeedback formControlName="id" (onDebounce)="onValidateId($event)">
+        </div>
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input appFeedback [errorMessages]="this.errorMessages.name" id="name" type="text"  formControlName="name">
+        </div>
+        <div class="form-group">
+          <label for="description">Descripcion</label>
+          <input id="description" appFeedback [errorMessages]="this.errorMessages.description" type="text" formControlName="description">
+        </div>
+        <div class="form-group">
+          <label for="logo">Logo</label>
+          <input id="logo" type="text" appFeedback [errorMessages]="this.errorMessages.logo" formControlName="logo">
+        </div>
+        <div class="form-group">
+          <label for="date_release">Fecha liberacion</label>
+          <input id="date_release" type="date" (change)="this.dateReleaseChange()" appFeedback [errorMessages]="this.errorMessages.date_release" formControlName="date_release">
+        </div>
+        <div class="form-group">
+          <label for="date_revision">Fecha revision</label>
+          <input id="date_revision" appFeedback [errorMessages]="this.errorMessages.date_revision" type="date" formControlName="date_revision">
+        </div>
+    </div>
+
+    <div class="form-buttons">
+      <app-button  color="rgb(238,234,249)"  type="reset">
+        Reiniciar
+      </app-button>
+      <app-button [disabled]="this.form.invalid" [rounded]="true" type="submit">
+        {{this.selectedProduct ? 'Editar' : 'Enviar'}}
+      </app-button>
+    </div>
+  </form>
+</div>
